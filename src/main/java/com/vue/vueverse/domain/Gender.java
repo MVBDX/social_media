@@ -1,5 +1,8 @@
 package com.vue.vueverse.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum Gender {
     FEMALE(1), MALE(2), OTHER(3);
     private final int type;
@@ -8,7 +11,4 @@ public enum Gender {
         this.type = type;
     }
 
-    public int getType() {
-        return type;
-    }
 }

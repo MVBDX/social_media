@@ -1,5 +1,8 @@
 package com.vue.vueverse.domain;
 
+import lombok.Getter;
+
+@Getter
 public class User {
     private static long lastAssignedId = 0;
     private final Long id;
@@ -25,27 +28,4 @@ public class User {
         return ++lastAssignedId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public Password getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public PhoneNumber getPhonenumber() {
-        return phonenumber;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
 }

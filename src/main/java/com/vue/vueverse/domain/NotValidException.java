@@ -1,5 +1,8 @@
 package com.vue.vueverse.domain;
 
+import lombok.Getter;
+
+@Getter
 public class NotValidException extends RuntimeException {
     private final String message;
 
@@ -7,8 +10,5 @@ public class NotValidException extends RuntimeException {
         this.message = message;
     }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
+
 }

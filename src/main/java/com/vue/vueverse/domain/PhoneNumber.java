@@ -3,9 +3,9 @@ package com.vue.vueverse.domain;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 
-public class PhoneNumber {
-    private final String phoneNumber;
 
+
+public record PhoneNumber(String phoneNumber) {
     public PhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         isValidPhoneNumber();
@@ -20,8 +20,7 @@ public class PhoneNumber {
         }
     }
 
-    //todo add change  phone number
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public boolean updatePhoneNumber() {
+        return false;
     }
 }

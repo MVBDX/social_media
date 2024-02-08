@@ -1,13 +1,13 @@
 package com.vue.vueverse.domain;
 
+
+
 import java.util.regex.Pattern;
 
-public class Password {
-    private final String password;
 
-    public Password(String password) {
+public record Password(String password) {
+    public Password {
         isValidPassword(password);
-        this.password = password;
     }
 
     private void isValidPassword(String password) {
@@ -19,8 +19,7 @@ public class Password {
 
     }
 
-    //todo add change password
-    public String getPassword() {
-        return password;
+    public boolean updatePassword() {
+        return false;
     }
 }
