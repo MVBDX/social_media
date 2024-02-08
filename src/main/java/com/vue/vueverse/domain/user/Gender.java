@@ -1,4 +1,4 @@
-package com.vue.vueverse.domain;
+package com.vue.vueverse.domain.user;
 
 import lombok.Getter;
 

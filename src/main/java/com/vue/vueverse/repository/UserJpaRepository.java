@@ -2,7 +2,7 @@ package com.vue.vueverse.repository;
 
 
 
-import com.vue.vueverse.domain.User;
+import com.vue.vueverse.domain.user.User;
 
 import java.util.Optional;
 

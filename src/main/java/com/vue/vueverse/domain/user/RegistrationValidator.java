@@ -1,4 +1,4 @@
-package com.vue.vueverse.domain;
+package com.vue.vueverse.domain.user;
 
 import java.util.regex.Pattern;
 
@@ -8,7 +8,7 @@ public class RegistrationValidator {
         String regex = "^[a-zA-Z0-9_]+$";
         boolean isValidUsername = Pattern.matches(regex, username);
         if (!isValidUsername)
-            throw new NotValidException("Username should contain only alphanumeric characters and underscores");
+            throw new UserException("Username should contain only alphanumeric characters and underscores");
     }
 
 
@@ -16,6 +16,6 @@ public class RegistrationValidator {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         boolean isValidEmail = Pattern.matches(emailRegex, email);
         if (!isValidEmail)
-            throw new NotValidException("email not valid");
+            throw new UserException("email not valid");
     }
 }
