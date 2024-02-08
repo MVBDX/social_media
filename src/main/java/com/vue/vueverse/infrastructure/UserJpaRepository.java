@@ -1,4 +1,4 @@
 package com.vue.vueverse.infrastructure;
 
-public interface UserRepository {
+public interface UserJpaRepository{
 }

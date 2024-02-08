@@ -1,5 +1,9 @@
-package com.vue.vueverse.domain.user;
+package com.vue.vueverse.domain.user.valueObject;
 
+import com.vue.vueverse.domain.user.RegistrationValidator;
+import com.vue.vueverse.domain.user.User;
+import com.vue.vueverse.domain.user.UserException;
+import com.vue.vueverse.domain.user.UserRepository;
 import lombok.Getter;
 
 import java.util.Objects;
@@ -18,7 +22,7 @@ public class Email {
 
     public boolean updateEmail(User user, Email email) {
 
-        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail().getEmail())
+        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
         RegistrationValidator.isValidEmail(email.getEmail());

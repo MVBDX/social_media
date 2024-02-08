@@ -1,7 +1,10 @@
-package com.vue.vueverse.domain.user;
+package com.vue.vueverse.domain.user.valueObject;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.vue.vueverse.domain.user.User;
+import com.vue.vueverse.domain.user.UserException;
+import com.vue.vueverse.domain.user.UserRepository;
 
 import java.util.Objects;
 
@@ -28,7 +31,7 @@ public class PhoneNumber {
 
     public boolean updatePhoneNumber(User user, PhoneNumber phoneNumber) {
 
-        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail().getEmail())
+        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
         isValidPhoneNumber(phoneNumber.phoneNumber);
