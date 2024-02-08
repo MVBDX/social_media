@@ -13,14 +13,14 @@ public class User {
     private final Gender gender;
 
     public User(String username, Password password, String email, PhoneNumber phonenumber, Gender gender) {
-        this.id = generateUniqueId();
         RegistrationValidator.isValidUsername(username);
         RegistrationValidator.isValidEmail(email);
-        this.username = username;
-        this.password = password;
-        this.email = email;
+        this.id = generateUniqueId();
         this.phonenumber = phonenumber;
+        this.password = password;
         this.gender = gender;
+        this.username = username;
+        this.email = email;
     }
 
 
