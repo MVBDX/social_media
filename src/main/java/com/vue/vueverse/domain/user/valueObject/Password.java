@@ -5,6 +5,7 @@ import com.vue.vueverse.domain.user.User;
 import com.vue.vueverse.domain.user.UserException;
 import com.vue.vueverse.domain.user.UserRepository;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 
@@ -28,18 +29,18 @@ public class Password {
 
     }
 
-    public boolean updatePassword(User user, Password newPassword) {
+    public boolean updatePassword(User user, String newPassword) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
-        Password oldPassword = currentUser.getPassword();
+        var oldPassword = currentUser.getPassword().password;
 
-        isValidPassword(newPassword.password);
+        isValidPassword(newPassword);
 
-        if (oldPassword != newPassword)
-            return userRepository.save(new User(user.getUsername(), newPassword, user.getEmail(),
-                    user.getPhonenumber(), user.getGender()));
+        if (!Objects.equals(oldPassword, newPassword))
+            return userRepository.save(new User(user.getUsername(), new Password(newPassword, userRepository),
+                    user.getEmail(), user.getPhonenumber(), user.getGender()));
 
         return false;
     }

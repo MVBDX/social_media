@@ -29,16 +29,16 @@ public class PhoneNumber {
     }
 
 
-    public boolean updatePhoneNumber(User user, PhoneNumber phoneNumber) {
+    public boolean updatePhoneNumber(User user, String phoneNumber) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
-        isValidPhoneNumber(phoneNumber.phoneNumber);
+        isValidPhoneNumber(phoneNumber);
 
-        if (!Objects.equals(currentUser.getPhonenumber().phoneNumber, phoneNumber.phoneNumber))
+        if (!Objects.equals(currentUser.getPhonenumber().phoneNumber, phoneNumber))
             return userRepository.save(new User(user.getUsername(), user.getPassword(), user.getEmail(),
-                    phoneNumber, user.getGender()));
+                    new PhoneNumber(phoneNumber, userRepository), user.getGender()));
 
         return false;
     }

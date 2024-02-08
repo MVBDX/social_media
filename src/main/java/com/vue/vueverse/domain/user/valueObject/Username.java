@@ -20,14 +20,14 @@ public class Username {
     }
 
 
-    public boolean updateEmail(User user, Username username) {
+    public boolean updateEmail(User user, String username) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
-        RegistrationValidator.isValidUsername(username.getUsername());
+        RegistrationValidator.isValidUsername(username);
 
-        if (!Objects.equals(currentUser.getUsername().getUsername(), username.getUsername()))
+        if (!Objects.equals(currentUser.getUsername().getUsername(), username))
             return userRepository.save(new User(user.getUsername(), user.getPassword(), user.getEmail(),
                     user.getPhonenumber(), user.getGender()));
 
