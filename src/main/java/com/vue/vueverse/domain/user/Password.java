@@ -26,7 +26,7 @@ public class Password {
 
     public boolean updatePassword(User user, Password newPassword) {
 
-        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail())
+        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
         Password oldPassword = currentUser.getPassword();

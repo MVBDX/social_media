@@ -28,7 +28,7 @@ public class PhoneNumber {
 
     public boolean updatePhoneNumber(User user, PhoneNumber phoneNumber) {
 
-        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail())
+        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
 
         isValidPhoneNumber(phoneNumber.phoneNumber);

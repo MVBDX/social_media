@@ -8,13 +8,13 @@ public class User {
     private final Long id;
     private final String username;
     private final Password password;
-    private final String email;
+    private final Email email;
     private final PhoneNumber phonenumber;
     private final Gender gender;
 
-    public User(String username, Password password, String email, PhoneNumber phonenumber, Gender gender) {
+    public User(String username, Password password, Email email, PhoneNumber phonenumber, Gender gender) {
         RegistrationValidator.isValidUsername(username);
-        RegistrationValidator.isValidEmail(email);
+        RegistrationValidator.isValidEmail(email.getEmail());
         this.id = generateUniqueId();
         this.phonenumber = phonenumber;
         this.password = password;
