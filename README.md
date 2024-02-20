@@ -36,8 +36,8 @@ This microservices-based social media platform aims to provide a scalable and mo
 - **CI/CD:** Jenkins for continuous integration and continuous deployment.
 - **Containerization and Orchestration:** Docker and Kubernetes for managing containerized applications.
 ## Messaging Brokers
-- **Apache Kafka: Scalable and distributed messaging system.
-- **RabbitMQ: Open-source message broker software.
+- **Apache Kafka:** Scalable and distributed messaging system.
+- **RabbitMQ:** Open-source message broker software.
 - **## Getting Started**
 ## Socket-based Chat
 The chat functionality is implemented using WebSocket for real-time communication. Each user can connect to the chat service to send and receive messages in real-time.
