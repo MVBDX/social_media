@@ -1,35 +1,40 @@
-# Instagram User Management
+# Social Media Microservices
 
-This project is a Java-based application developed using Spring Boot and PostgreSQL, following Domain-Driven Design (DDD) and Test-Driven Development (TDD) principles. The project aims to manage user data for a social media platform, focusing on clean architecture and robust, scalable code.
+![Social Media Microservices](insert_image_url_here)
+
+This project is a microservices-based social media platform, inspired by Instagram, featuring a range of functionalities such as posts, user management, and chat. The architecture follows microservices principles and leverages Python and Java, utilizing frameworks such as Spring (Quarkus and Micronaut) and Django for each service.
 
 ## Table of Contents
-- [Introduction](#introduction)
+- [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Testing](#testing)
+- [Microservices](#microservices)
+- [Messaging Brokers](#messaging-brokers)
+- [Socket-based Chat](#socket-based-chat)
+- [CI/CD](#ci-cd)
+- [Databases](#databases)
+- [API Protocols](#api-protocols)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
+## Overview
 
-Social media platforms require robust user management systems. This project provides a foundation for managing Instagram user data, with a focus on clean, maintainable code. The application is built using Spring Boot and integrates seamlessly with a PostgreSQL database.
+This microservices-based social media platform aims to provide a scalable and modular solution for various features like posts, user management, chat, etc. The project follows microservices architecture, ensuring flexibility and ease of maintenance.
 
 ## Features
 
 - **User Management:** Create, read, update, and delete user profiles.
-- **Followers/Following:** Implement a system for users to follow and be followed by other users.
-- **Post Management:** Extend the application to manage user posts and interactions.
-- **Authentication and Authorization:** Secure endpoints using authentication and authorization mechanisms.
+- **Posts:** Share and interact with posts from other users.
+- **Chat:** Real-time messaging between users using WebSocket.
 
 ## Technologies Used
 
-- **Java:** The primary programming language.
-- **Spring Boot:** A powerful framework for building Java-based enterprise applications.
-- **PostgreSQL:** A robust open-source relational database system.
-- **JUnit and Mockito:** Testing libraries for implementing TDD.
-- **Clean Architecture:** Organize code in a modular, clean architecture for maintainability and scalability.
+- **Python and Java:** Primary programming languages.
+- **Frameworks:** Spring (Quarkus and Micronaut) for Java services, Django for Python services.
+- **Messaging Brokers:** Apache Kafka and RabbitMQ for efficient communication between microservices.
+- **CI/CD:** Jenkins for continuous integration and continuous deployment.
+- **Containerization and Orchestration:** Docker and Kubernetes for managing containerized applications.
 
 ## Getting Started
 
