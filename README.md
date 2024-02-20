@@ -38,13 +38,13 @@ This microservices-based social media platform aims to provide a scalable and mo
 ## Messaging Brokers
 - **Apache Kafka: Scalable and distributed messaging system.
 - **RabbitMQ: Open-source message broker software.
-- **## Getting Started
+- **## Getting Started**
 ## Socket-based Chat
 The chat functionality is implemented using WebSocket for real-time communication. Each user can connect to the chat service to send and receive messages in real-time.
 To get started with the project, follow these steps:
-##Databases
-- **SQL Database: PostgreSQL for structured data.
-- **NoSQL Databases: Redis, MongoDB, and Cassandra for various data storage needs.
+## Databases
+- **SQL Database:** PostgreSQL for structured data.
+- **NoSQL Databases**: Redis, MongoDB, and Cassandra for various data storage needs.
 1. Clone the repository:
    ```bash
    git clone https://github.com/aliJavaTar/social_media.git
