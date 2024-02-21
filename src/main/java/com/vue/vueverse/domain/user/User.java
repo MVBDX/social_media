@@ -26,7 +26,7 @@ public class User {
     }
 
 
-    private synchronized static long generateUniqueId() {
+    private static synchronized long generateUniqueId() {
         return ++lastAssignedId;
     }
 

@@ -12,33 +12,34 @@ public class PhoneNumber {
     private final UserRepository userRepository;
 
     public PhoneNumber(String phoneNumber, UserRepository userRepository) {
-        isValidPhoneNumber(phoneNumber);
+        validate();
         this.phoneNumber = phoneNumber;
         this.userRepository = userRepository;
     }
 
-//    private void isValidPhoneNumber(String phoneNumber) {
-//        PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
-//        try {
-//            phoneNumberUtil.isValidNumber(phoneNumberUtil.parse(phoneNumber, "ZZ"));
-//        } catch (NumberParseException exception) {
-//            System.out.println(exception.getMessage());
-//        }
-//    }
-
-
     public boolean updatePhoneNumber(User user, String phoneNumber) {
 
-        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
-                .orElseThrow(() -> new UserException("user doesn't exist "));
+        User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getName(), user.getEmail().getEmail())
+                .orElseThrow(() -> new UserException("User doesn't exist.")); //TODO: Using bundle message for multilingual and prevent duplication message
 
-        isValidPhoneNumber(phoneNumber);
+        validate();
 
         if (!Objects.equals(currentUser.getPhonenumber().phoneNumber, phoneNumber))
             return userRepository.save(new User(user.getUsername(), user.getPassword(), user.getEmail(),
                     new PhoneNumber(phoneNumber, userRepository), user.getGender()));
 
         return false;
+    }
+
+    public void validate() throws UserException {
+        PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
+        try {
+            if (!phoneNumberUtil.isValidNumber(phoneNumberUtil.parse(phoneNumber, "ZZ"))) {
+                throw new UserException("Invalid phone number");
+            }
+        } catch (NumberParseException exception) {
+            throw new UserException(exception.getMessage());
+        }
     }
 
 }
