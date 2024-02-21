@@ -1,7 +1,5 @@
 package com.vue.vueverse.domain.user.valueObject;
 
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.vue.vueverse.domain.user.User;
 import com.vue.vueverse.domain.user.UserException;
 import com.vue.vueverse.domain.user.UserRepository;

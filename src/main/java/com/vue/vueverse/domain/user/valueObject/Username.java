@@ -19,7 +19,7 @@ public class Username {
         this.userRepository = userRepository;
     }
 
-
+    
     public boolean updateUsername(User user, String username) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())

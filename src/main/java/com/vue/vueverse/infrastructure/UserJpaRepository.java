@@ -1,6 +1,5 @@
 package com.vue.vueverse.infrastructure;
 
-import com.vue.vueverse.domain.user.User;
 import com.vue.vueverse.infrastructure.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
