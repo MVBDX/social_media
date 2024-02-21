@@ -5,10 +5,12 @@ import java.util.regex.Pattern;
 public class RegistrationValidator {
 
     public static void isValidUsername(String username) {
-        String regex = "^[a-zA-Z0-9_]+$";
-        boolean isValidUsername = Pattern.matches(regex, username);
-        if (!isValidUsername)
-            throw new UserException("Username should contain only alphanumeric characters and underscores");
+        if (username != null) {
+            String regex = "^[a-zA-Z0-9_]+$";
+            boolean isValidUsername = Pattern.matches(regex, username);
+            if (!isValidUsername)
+                throw new UserException("Username should contain only alphanumeric characters and underscores");
+        }
     }
 
 
