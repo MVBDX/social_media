@@ -21,7 +21,7 @@ public class UserRepositorySpringData implements UserRepository {
         repository.findByEmailOrUsername(email, username).orElseThrow(
                 () -> new RuntimeException("not found")
         );
-        return null;
+        return Optional.empty();
     }
 
     @Override
