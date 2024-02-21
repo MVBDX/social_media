@@ -25,7 +25,6 @@ public class User {
         this.email = email;
     }
 
-
     private static synchronized long generateUniqueId() {
         return ++lastAssignedId;
     }
