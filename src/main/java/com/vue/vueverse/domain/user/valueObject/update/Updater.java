@@ -1,4 +1,7 @@
 package com.vue.vueverse.domain.user.valueObject.update;
 
-public interface Updater {
+import com.vue.vueverse.domain.user.User;
+
+public interface Updater<T> {
+    boolean update(User user, T t);
 }

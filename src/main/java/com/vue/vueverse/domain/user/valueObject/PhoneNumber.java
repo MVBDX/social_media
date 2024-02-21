@@ -19,14 +19,14 @@ public class PhoneNumber {
         this.userRepository = userRepository;
     }
 
-    private void isValidPhoneNumber(String phoneNumber) {
-        PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
-        try {
-            phoneNumberUtil.isValidNumber(phoneNumberUtil.parse(phoneNumber, "ZZ"));
-        } catch (NumberParseException exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
+//    private void isValidPhoneNumber(String phoneNumber) {
+//        PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
+//        try {
+//            phoneNumberUtil.isValidNumber(phoneNumberUtil.parse(phoneNumber, "ZZ"));
+//        } catch (NumberParseException exception) {
+//            System.out.println(exception.getMessage());
+//        }
+//    }
 
 
     public boolean updatePhoneNumber(User user, String phoneNumber) {

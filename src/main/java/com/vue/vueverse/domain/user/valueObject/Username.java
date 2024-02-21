@@ -20,7 +20,7 @@ public class Username {
     }
 
 
-    public boolean updateEmail(User user, String username) {
+    public boolean updateUsername(User user, String username) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getUsername(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("user doesn't exist "));
@@ -34,10 +34,10 @@ public class Username {
         return false;
     }
 
-    private void isValidUsername(String username) {
-        String regex = "^[a-zA-Z0-9_]+$";
-        if (!Pattern.matches(regex, username))
-            throw new UserException("Username should contain only alphanumeric characters and underscores");
-    }
+//    private void isValidUsername(String username) {
+//        String regex = "^[a-zA-Z0-9_]+$";
+//        if (!Pattern.matches(regex, username))
+//            throw new UserException("Username should contain only alphanumeric characters and underscores");
+//    }
 
 }

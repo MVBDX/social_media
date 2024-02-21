@@ -20,14 +20,14 @@ public class Password {
         this.userRepository = userRepository;
     }
 
-    private void isValidPassword(String password) {
-        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
-        boolean isValidPassword = Pattern.matches(passwordRegex, password);
-        if (!isValidPassword)
-            throw new UserException("Password should contain at least 8 characters, including at least " +
-                    "one uppercase letter, one lowercase letter, and one digit");
-
-    }
+//    private void isValidPassword(String password) {
+//        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+//        boolean isValidPassword = Pattern.matches(passwordRegex, password);
+//        if (!isValidPassword)
+//            throw new UserException("Password should contain at least 8 characters, including at least " +
+//                    "one uppercase letter, one lowercase letter, and one digit");
+//
+//    }
 
     public boolean updatePassword(User user, String newPassword) {
 
