@@ -17,8 +17,6 @@ public class User {
     private final Gender gender;
 
     public User(Username username, Password password, Email email, PhoneNumber phonenumber, Gender gender) {
-        RegistrationValidator.isValidUsername(username.getUsername());
-        RegistrationValidator.isValidEmail(email.getEmail());
         this.id = generateUniqueId();
         this.phonenumber = phonenumber;
         this.password = password;
