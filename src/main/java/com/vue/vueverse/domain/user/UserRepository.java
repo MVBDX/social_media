@@ -8,4 +8,11 @@ public interface UserRepository {
 
     boolean save(User user);
 
+
+//
+//    List<User> findAll();
+
+    Optional<User> findById(Long id);
+
+
 }
