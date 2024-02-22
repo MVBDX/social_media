@@ -4,13 +4,14 @@ package com.vue.vueverse.domain.user.valueObject;
 import com.vue.vueverse.domain.user.User;
 import com.vue.vueverse.domain.user.UserException;
 import com.vue.vueverse.domain.user.UserRepository;
+import lombok.Getter;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
 
 
 public class Password {
-
+    @Getter
     private final String password;
     private final UserRepository userRepository;
 

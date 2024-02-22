@@ -8,18 +8,18 @@ import lombok.Getter;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class Username { //class name?
+public class Username {
     @Getter
     private final String name;
     private final UserRepository userRepository;
 
     public Username(String name, UserRepository userRepository) {
-        validate();
         this.name = name;
+        validate();
         this.userRepository = userRepository;
     }
 
-    
+
     public boolean updateUsername(User user, String username) {
 
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getName(), user.getEmail().getEmail())
@@ -35,7 +35,7 @@ public class Username { //class name?
     }
 
     private void validate() throws UserException {
-        String regex = "^[a-zA-Z0-9_]+$";
+        String regex = "^[a-zA-Z][a-zA-Z0-9_]{2,}$";
         if (!Pattern.matches(regex, this.name))
             throw new UserException("Username should contain only alphanumeric characters and underscores");
     }
