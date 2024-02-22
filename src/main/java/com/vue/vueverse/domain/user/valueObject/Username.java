@@ -25,13 +25,15 @@ public class Username {
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getName(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("User doesn't exist."));
 
+
+        if (Objects.equals(currentUser.getUsernameValue(), username))
+            throw new UserException("you should Enter new username");
+
         validate();
 
-        if (!Objects.equals(currentUser.getUsername().getName(), username))
-            return userRepository.save(new User(user.getUsername(), user.getPassword(), user.getEmail(),
-                    user.getPhonenumber(), user.getGender()));
+        return userRepository.save(new User(user.getUsername(), user.getPassword(), user.getEmail(),
+                user.getPhonenumber(), user.getGender()));
 
-        return false;
     }
 
     private void validate() throws UserException {

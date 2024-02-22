@@ -16,25 +16,25 @@ public class Password {
     private final UserRepository userRepository;
 
     public Password(String password, UserRepository userRepository) {
-        validate();
         this.password = password;
+        validate();
         this.userRepository = userRepository;
     }
 
     public boolean updatePassword(User user, String newPassword) {
-
         User currentUser = userRepository.findByUsernameOrEmail(user.getUsername().getName(), user.getEmail().getEmail())
                 .orElseThrow(() -> new UserException("User doesn't exist."));
 
-        var oldPassword = currentUser.getPassword().password;
+
+        var oldPassword = currentUser.getPasswordValue();
+
+        if (Objects.equals(oldPassword, newPassword))
+            throw new UserException("you should new password");
 
         validate();
 
-        if (!Objects.equals(oldPassword, newPassword))
-            return userRepository.save(new User(user.getUsername(), new Password(newPassword, userRepository),
-                    user.getEmail(), user.getPhonenumber(), user.getGender()));
-
-        return false;
+        return userRepository.save(new User(user.getUsername(), new Password(newPassword, userRepository),
+                user.getEmail(), user.getPhonenumber(), user.getGender()));
     }
 
     public void validate() throws UserException {

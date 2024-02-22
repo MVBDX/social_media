@@ -83,27 +83,18 @@ class UsernameShould {
 
         User mockExistingUser = Mockito.mock(User.class);
         Username mockUsername = Mockito.mock(Username.class);
+        Email mockEmail = Mockito.mock(Email.class);
 
         Mockito.when(mockExistingUser.getUsername()).thenReturn(mockUsername);
         Mockito.when(mockUsername.getName()).thenReturn(existingUsername);
-
-        Email mockEmail = Mockito.mock(Email.class);
         Mockito.when(mockExistingUser.getEmail()).thenReturn(mockEmail);
-
         Mockito.when(mockEmail.getEmail()).thenReturn("example@example.com");
-
+        Mockito.when(mockExistingUser.getUsernameValue()).thenReturn("existing_username");
         Mockito.when(mockUserRepository.findByUsernameOrEmail(Mockito.anyString(), Mockito.anyString()))
                 .thenReturn(Optional.of(mockExistingUser));
 
-
         Username username = new Username(existingUsername, mockUserRepository);
-
-
-        boolean result = username.updateUsername(mockExistingUser, existingUsername);
-
-
-        assertFalse(result);
-        Mockito.verify(mockUserRepository, Mockito.never()).save(Mockito.any(User.class));
+        assertThrows(UserException.class, () -> username.updateUsername(mockExistingUser,"existing_username"));
     }
 }
 

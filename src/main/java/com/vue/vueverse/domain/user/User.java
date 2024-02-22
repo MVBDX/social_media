@@ -29,4 +29,11 @@ public class User {
         return ++lastAssignedId;
     }
 
+    public String getPasswordValue() {
+        return password.getPassword();
+    }
+
+    public String getUsernameValue() {
+        return username.getName();
+    }
 }
